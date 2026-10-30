@@ -152,7 +152,7 @@ const PublicProfile = () => {
         <div className="public-profile-page">
             <header className="public-profile-header">
                 <Link to="/home" className="public-logo">
-                    scribbly<span>.</span>
+                    Blok<span>NOte</span>
                 </Link>
 
                 <Link to="/home" className="back-home-link">

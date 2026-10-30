@@ -1,44 +1,33 @@
-
-/* ========================================
-   SCRIBBLY - CREATE POST PAGE
-   Pastel scrapbook theme
-======================================== */
+/* =========================================
+   BLOKNOTE — EDITORIAL CREATE POST PAGE
+========================================= */
 
 .create-post-page {
-    min-height: 100vh;
+    --editor-bg: #f8f6f1;
+    --editor-card: #ffffff;
+    --editor-text: #292522;
+    --editor-muted: #77736c;
+    --editor-primary: #a34d58;
+    --editor-primary-dark: #823b45;
+    --editor-border: #e8e2d9;
+    --editor-soft: #f3eeea;
+
     position: relative;
     isolation: isolate;
+    min-height: 100vh;
     overflow: hidden;
-    background:
-        radial-gradient(
-            ellipse at 0% 0%,
-            #f9dce9 0%,
-            transparent 25%
-        ),
-        radial-gradient(
-            ellipse at 100% 5%,
-            #d8f3df 0%,
-            transparent 25%
-        ),
-        radial-gradient(
-            ellipse at 0% 100%,
-            #e8ddff 0%,
-            transparent 25%
-        ),
-        radial-gradient(
-            ellipse at 100% 100%,
-            #fff0b8 0%,
-            transparent 25%
-        ),
-        #fffcf4;
-
-    color: #292522;
-    font-family: inherit;
+    background: var(--editor-bg);
+    color: var(--editor-text);
+    font-family: "DM Sans", Arial, sans-serif;
 }
 
-/* ========================================
-   PASTEL SCRAPBOOK DOODLES
-======================================== */
+.create-post-page *,
+.create-post-page *::before,
+.create-post-page *::after {
+    box-sizing: border-box;
+}
+
+/* DECORATIVE DOODLES */
 
 .doodle {
     position: absolute;
@@ -46,76 +35,64 @@
     pointer-events: none;
     user-select: none;
     font-size: clamp(35px, 4vw, 60px);
-    opacity: 0.85;
-    filter: drop-shadow(
-        2px 3px 0 rgba(232, 139, 170, 0.12)
-    );
+    opacity: 0.13;
+    filter: grayscale(1);
 }
 
-/* Books */
 .doodle-book {
     top: 170px;
     left: 4%;
     transform: rotate(-13deg);
 }
 
-/* Pencils */
 .doodle-pencils {
     top: 650px;
     left: 5%;
     transform: rotate(12deg);
 }
 
-/* Open notebook */
 .doodle-notebook {
     top: 520px;
     right: 5%;
     transform: rotate(10deg);
 }
 
-/* Flower */
 .doodle-flower {
     top: 320px;
     right: 8%;
-    color: #e8b94e;
+    color: var(--editor-primary);
 }
 
-/* Heart */
 .doodle-heart {
     top: 290px;
     left: 17%;
-    color: #e88baa;
+    color: var(--editor-primary);
     font-size: 60px;
     font-weight: bold;
     transform: rotate(-15deg);
 }
 
-/* Star */
 .doodle-star {
     top: 110px;
     left: 20%;
-    color: #e9bd50;
+    color: #b49a67;
     font-size: 55px;
 }
 
-/* Love note */
 .doodle-note {
     top: 170px;
     right: 17%;
     transform: rotate(8deg);
 }
 
-/* Sparkle */
 .doodle-sparkle {
     top: 700px;
     right: 19%;
-    color: #d87599;
+    color: var(--editor-primary);
     font-size: 60px;
 }
 
-/* ========================================
-   PASTEL CORNER BLOBS
-======================================== */
+/* BACKGROUND DECORATION */
 
 .create-post-page::before,
 .create-post-page::after {
@@ -125,26 +102,24 @@
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    opacity: 0.45;
+    opacity: 0.16;
     pointer-events: none;
-    filter: blur(2px);
+    filter: blur(25px);
 }
 
 .create-post-page::before {
     top: 380px;
     left: -150px;
-    background: #c8efd4;
+    background: #d8c7b8;
 }
 
 .create-post-page::after {
     top: 750px;
     right: -140px;
-    background: #f7d3e3;
+    background: #e5c8c7;
 }
 
-/* ========================================
-   HEADER
-======================================== */
+/* HEADER */
 
 .create-post-header {
     position: relative;
@@ -152,189 +127,190 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 7%;
-    background: rgba(255, 255, 255, 0.65);
-    border-bottom: 1px solid #f0dce4;
-    backdrop-filter: blur(8px);
+    padding: 19px 7%;
+    background: rgba(248, 246, 241, 0.95);
+    border-bottom: 1px solid var(--editor-border);
+    backdrop-filter: blur(12px);
 }
 
 .create-post-logo {
-    font-size: 32px;
-    font-weight: 900;
-    color: #292522;
+    color: var(--editor-text);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
     text-decoration: none;
-    letter-spacing: -1.5px;
 }
 
 .create-post-logo span {
-    color: #e88baa;
+    color: var(--editor-primary);
 }
 
 .back-home-btn {
-    background: #fff;
-    border: 2px solid #292522;
-    border-radius: 25px;
     padding: 10px 18px;
-    font-weight: 700;
+    background: transparent;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .back-home-btn:hover {
-    background: #fce2ec;
-    transform: translateY(-2px);
+    background: var(--editor-soft);
+    border-color: var(--editor-primary);
+    color: var(--editor-primary);
 }
 
-/* ========================================
-   MAIN CONTENT
-======================================== */
+/* MAIN CONTENT */
 
 .create-post-main {
     position: relative;
     z-index: 2;
-    width: min(760px, 90%);
-    margin: 45px auto;
-    padding-bottom: 50px;
+    width: min(780px, 90%);
+    margin: 48px auto;
+    padding-bottom: 55px;
 }
 
-/* ========================================
-   PAGE HEADING
-======================================== */
+/* PAGE HEADING */
 
 .create-post-heading {
+    margin-bottom: 38px;
     text-align: center;
-    margin-bottom: 35px;
 }
 
 .create-post-kicker {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #a45c78;
+    color: var(--editor-primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
 }
 
 .create-post-heading h1 {
-    font-size: clamp(36px, 6vw, 56px);
     margin: 15px 0;
-    font-weight: 900;
-    letter-spacing: -2px;
+    color: var(--editor-text);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(38px, 6vw, 57px);
+    font-weight: 600;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
 }
 
 .create-post-heading h1 span {
-    color: #d87599;
-    font-family: Georgia, serif;
+    color: var(--editor-primary);
+    font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
 }
 
 .create-post-heading p {
-    color: #756963;
-    line-height: 1.7;
+    color: var(--editor-muted);
+    font-size: 14px;
+    line-height: 1.8;
 }
 
-/* ========================================
-   FORM CARD
-======================================== */
+/* FORM CARD */
 
 .create-post-form {
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.96);
-    border: 2px solid #292522;
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 7px 7px 0 #f6b8c8;
+    padding: 38px;
+    background: var(--editor-card);
+    border: 1px solid var(--editor-border);
+    border-radius: 4px;
+    box-shadow: 0 12px 35px rgba(48, 39, 31, 0.055);
     backdrop-filter: blur(4px);
 }
 
-.create-post-form > label {
-    font-weight: 800;
-    margin: 20px 0 9px;
+.create-post-form>label {
+    margin: 22px 0 9px;
+    color: var(--editor-text);
+    font-size: 13px;
+    font-weight: 700;
 }
 
-/* ========================================
-   INPUTS AND CATEGORY
-======================================== */
+/* INPUTS AND CATEGORY */
 
 .create-post-form input:not([type="file"]):not([type="color"]),
 .create-post-form select {
     width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #e8dfe1;
-    border-radius: 11px;
-    background: #fffcf8;
     padding: 14px 15px;
+    background: #fdfcf9;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
     font: inherit;
-    font-size: 15px;
-    color: #292522;
+    font-size: 14px;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .create-post-form input:focus,
 .create-post-form select:focus {
-    border-color: #d87599;
+    border-color: var(--editor-primary);
+    box-shadow: 0 0 0 3px rgba(163, 77, 88, 0.08);
 }
 
-/* ========================================
-   COVER PHOTO UPLOAD
-======================================== */
+/* COVER IMAGE UPLOAD */
 
 .cover-upload-box {
     width: 100%;
-    box-sizing: border-box;
-    border: 2px dashed #e8b4c5;
-    border-radius: 14px;
-    background: #fffcf8;
     overflow: hidden;
-    transition: background 0.2s ease;
+    background: #fdfcf9;
+    border: 1px dashed #cdb9b3;
+    border-radius: 3px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .cover-upload-box:hover {
-    background: #fff8fb;
+    background: #faf5f2;
+    border-color: var(--editor-primary);
 }
 
 .cover-upload-btn {
-    width: 100%;
-    min-height: 190px;
-    border: none;
-    background: transparent;
-    color: #292522;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    cursor: pointer;
+    gap: 10px;
+    width: 100%;
+    min-height: 190px;
     padding: 24px;
+    background: transparent;
+    color: var(--editor-text);
+    border: none;
+    cursor: pointer;
 }
 
 .upload-icon {
-    font-size: 36px;
-    color: #d87599;
+    color: var(--editor-primary);
+    font-size: 34px;
     line-height: 1;
 }
 
 .cover-upload-btn strong {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .cover-upload-btn span:not(.upload-icon) {
-    color: #756963;
-    font-size: 14px;
+    color: var(--editor-muted);
+    font-size: 13px;
 }
 
 .cover-upload-btn small {
-    color: #9b8b87;
-    font-size: 12px;
+    color: #a29a91;
+    font-size: 11px;
 }
 
 .cover-upload-btn:hover {
-    background: #fff3f7;
+    background: #faf5f2;
 }
 
-/* Cover preview */
+/* COVER PREVIEW */
 
 .cover-preview {
     width: 100%;
@@ -349,33 +325,34 @@
 
 .cover-image-actions {
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
     padding: 12px;
-    justify-content: flex-end;
-    background: #fff8fa;
+    background: #f8f6f1;
 }
 
 .cover-image-actions button {
-    border: 1px solid #292522;
-    border-radius: 22px;
     padding: 9px 15px;
-    background: #fff;
-    font-weight: 700;
+    background: white;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .cover-image-actions button:hover {
-    background: #fce2ec;
+    background: var(--editor-soft);
+    border-color: var(--editor-primary);
 }
 
 .cover-image-actions .remove-image-btn {
-    color: #a32d43;
+    color: var(--editor-primary-dark);
 }
 
-/* ========================================
-   RICH TEXT TOOLBAR
-======================================== */
+/* RICH TEXT TOOLBAR */
 
 .editor-toolbar {
     display: flex;
@@ -383,62 +360,63 @@
     flex-wrap: wrap;
     gap: 7px;
     padding: 12px;
-    background: #fff8fa;
-    border: 2px solid #e8dfe1;
-    border-radius: 12px 12px 0 0;
+    background: #f5f2ed;
+    border: 1px solid var(--editor-border);
+    border-radius: 3px 3px 0 0;
 }
 
 .editor-toolbar select {
     width: auto;
     max-width: 150px;
     padding: 8px 9px;
-    font-size: 13px;
-    border: 1px solid #e8dfe1;
-    border-radius: 7px;
-    background: #fff;
-    color: #292522;
+    background: white;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-size: 12px;
 }
 
 .editor-toolbar button {
     min-width: 34px;
     min-height: 34px;
-    border: 1px solid #e8dfe1;
-    border-radius: 7px;
-    background: #fff;
-    color: #292522;
-    font-size: 14px;
-    cursor: pointer;
     padding: 6px 9px;
-    transition: background 0.2s ease;
+    background: white;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .editor-toolbar button:hover {
-    background: #f6b8c8;
-    border-color: #d87599;
+    background: #f0e3e1;
+    border-color: #d4b2b0;
+    color: var(--editor-primary-dark);
 }
 
 .toolbar-divider {
     width: 1px;
-    height: 26px;
-    background: #e8dfe1;
+    height: 25px;
     margin: 0 3px;
+    background: var(--editor-border);
 }
 
-/* Color picker buttons */
+/* COLOR PICKERS */
 
 .color-tool {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     width: 34px;
     height: 34px;
-    border: 1px solid #e8dfe1;
-    border-radius: 7px;
-    background: #fff;
-    font-weight: 900;
-    cursor: pointer;
     overflow: hidden;
+    background: white;
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 .color-tool input[type="color"] {
@@ -456,32 +434,30 @@
     font-size: 17px;
 }
 
-/* ========================================
-   STORY EDITOR
-======================================== */
+/* STORY EDITOR */
 
 .story-editor {
-    min-height: 300px;
-    padding: 18px;
-    border: 2px solid #e8dfe1;
+    min-height: 320px;
+    padding: 20px;
+    background: #fffefa;
+    color: var(--editor-text);
+    border: 1px solid var(--editor-border);
     border-top: none;
-    border-radius: 0 0 12px 12px;
-    background: #fffcf8;
+    border-radius: 0 0 3px 3px;
     font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #292522;
+    font-size: 15px;
+    line-height: 1.9;
     outline: none;
     overflow-wrap: anywhere;
 }
 
 .story-editor:focus {
-    border-color: #d87599;
+    border-color: var(--editor-primary);
 }
 
 .story-editor:empty::before {
     content: attr(data-placeholder);
-    color: #a59a96;
+    color: #aaa29a;
     pointer-events: none;
 }
 
@@ -490,8 +466,8 @@
     display: block;
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin: 16px auto;
+    margin: 18px auto;
+    border-radius: 3px;
 }
 
 .story-editor ul,
@@ -502,59 +478,61 @@
 .story-editor h1,
 .story-editor h2,
 .story-editor h3 {
-    line-height: 1.3;
+    line-height: 1.35;
+    font-family: "Playfair Display", Georgia, serif;
 }
 
-/* ========================================
-   ERROR MESSAGE
-======================================== */
+/* ERROR MESSAGE */
 
 .create-post-message {
-    color: #b42318;
-    background: #fff0f0;
-    border-radius: 10px;
-    padding: 12px;
     margin-top: 18px;
+    padding: 12px 14px;
+    background: #fff1ef;
+    color: #a33d35;
+    border: 1px solid #f0d2ce;
+    border-radius: 3px;
+    font-size: 13px;
 }
 
-/* ========================================
-   FORM ACTION BUTTONS
-======================================== */
+/* FORM ACTIONS */
 
 .create-post-actions {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    margin-top: 25px;
+    margin-top: 27px;
 }
 
 .cancel-post-btn,
 .publish-post-btn {
-    border: 2px solid #292522;
-    border-radius: 30px;
-    padding: 13px 22px;
-    font-weight: 800;
+    padding: 12px 23px;
+    border: 1px solid var(--editor-border);
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .cancel-post-btn {
-    background: #fff;
-    color: #292522;
+    background: white;
+    color: var(--editor-text);
 }
 
 .cancel-post-btn:hover {
-    background: #f4efff;
-    transform: translateY(-2px);
+    background: var(--editor-soft);
+    border-color: #c9bdb2;
 }
 
 .publish-post-btn {
-    background: #f6b8c8;
-    color: #292522;
+    background: var(--editor-primary);
+    color: white;
+    border-color: var(--editor-primary);
 }
 
 .publish-post-btn:hover {
-    background: #f19fba;
+    background: var(--editor-primary-dark);
+    border-color: var(--editor-primary-dark);
     transform: translateY(-2px);
 }
 
@@ -564,13 +542,11 @@
     transform: none;
 }
 
-/* ========================================
-   TABLET RESPONSIVE
-======================================== */
+/* TABLET */
 
 @media (max-width: 900px) {
     .doodle {
-        opacity: 0.3;
+        opacity: 0.07;
     }
 
     .doodle-book,
@@ -585,17 +561,15 @@
     }
 }
 
-/* ========================================
-   MOBILE RESPONSIVE
-======================================== */
+/* MOBILE */
 
 @media (max-width: 600px) {
     .create-post-header {
-        padding: 18px 5%;
+        padding: 16px 5%;
     }
 
     .create-post-logo {
-        font-size: 27px;
+        font-size: 26px;
     }
 
     .back-home-btn {
@@ -609,19 +583,23 @@
     }
 
     .create-post-heading {
-        margin-bottom: 25px;
+        margin-bottom: 27px;
     }
 
     .create-post-heading h1 {
-        font-size: 36px;
+        font-size: 37px;
     }
 
     .create-post-heading p {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .create-post-form {
-        padding: 22px 18px;
+        padding: 23px 18px;
+    }
+
+    .create-post-form>label {
+        margin-top: 19px;
     }
 
     .doodle {
@@ -632,7 +610,7 @@
     .doodle-heart,
     .doodle-flower,
     .doodle-sparkle {
-        opacity: 0.2;
+        opacity: 0.06;
     }
 
     .editor-toolbar {
@@ -645,7 +623,8 @@
     }
 
     .story-editor {
-        min-height: 250px;
+        min-height: 260px;
+        padding: 15px;
     }
 
     .create-post-actions {
@@ -655,5 +634,17 @@
     .cancel-post-btn,
     .publish-post-btn {
         width: 100%;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .create-post-page *,
+    .create-post-page *::before,
+    .create-post-page *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

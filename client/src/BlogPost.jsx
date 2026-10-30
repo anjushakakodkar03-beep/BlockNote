@@ -114,7 +114,7 @@ const handleWhatsAppShare = () => {
     `${window.location.origin}/post/${id}`;
 
   const shareText =
-    `Check out this story on Scribbly! ✨\n\n` +
+    `Check out this story on BlokNOte! ✨\n\n` +
     `"${post?.title || "A little story"}"\n\n` +
     articleUrl;
 
@@ -284,7 +284,7 @@ try {
 const author =
   post.authorName ||
   post.authorUsername ||
-  "Scribbly Author";
+  "BlokNOte Author";
 
 return (
   <main className="blog-post-page">
@@ -353,7 +353,7 @@ return (
             </p>
 
             <p className="author-caption">
-              A little story from Scribbly ♡
+              A little story from BlokNOte♡
             </p>
           </div>
         </div>
@@ -569,10 +569,10 @@ return (
             ) : (
               comments.map(
                 (comment) => {
-                  const commentAuthor =
+                  const commenter =
                     comment.authorName ||
                     comment.authorUsername ||
-                    "Scribbly User";
+                    "BlokNOte User";
 
                   return (
                     <div
@@ -580,7 +580,7 @@ return (
                       key={comment.id}
                     >
                       <div className="comment-avatar">
-                        {commentAuthor
+                        {commenter
                           .charAt(0)
                           .toUpperCase()}
                       </div>
@@ -590,7 +590,7 @@ return (
                           <div>
                             <strong>
                               {
-                                commentAuthor
+                                commenter
                               }
                             </strong>
 

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 const API = "http://localhost:5000/api";
@@ -354,12 +354,9 @@ function Profile() {
     return (
         <div className="profile-page">
             <header className="profile-topbar">
-                <button
-                    className="profile-logo"
-                    onClick={() => navigate("/home")}
-                >
-                    scribbly<span>.</span>
-                </button>
+                <Link className="profile-logo" to="/home">
+                    Blok<span>NOte</span>
+                </Link>
 
                 <button
                     className="back-home"

@@ -1,6 +1,6 @@
 
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CreatePost.css";
 
 function CreatePost() {
@@ -20,6 +20,7 @@ function CreatePost() {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
+    // Handle input changes
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -112,6 +113,7 @@ function CreatePost() {
     // Publish story
     const handlePublish = async (e) => {
         e.preventDefault();
+
         setLoading(true);
         setMessage("");
 
@@ -126,6 +128,11 @@ function CreatePost() {
             const editor = editorRef.current;
             const html = editor?.innerHTML || "";
             const plainText = editor?.innerText?.trim() || "";
+
+            if (!formData.title.trim()) {
+                setMessage("Please enter a story title.");
+                return;
+            }
 
             if (!plainText) {
                 setMessage("Please write something in your story.");
@@ -179,7 +186,8 @@ function CreatePost() {
 
     return (
         <div className="create-post-page">
-            {/* Pastel scrapbook doodles */}
+
+            {/* Decorative doodles */}
             <div className="doodle doodle-book" aria-hidden="true">
                 📚
             </div>
@@ -214,9 +222,10 @@ function CreatePost() {
 
             {/* Header */}
             <header className="create-post-header">
-                <a href="/home" className="create-post-logo">
-                    scribbly<span>.</span>
-                </a>
+
+                <Link className="home-logo" to="/home">
+                    Blok<span>NOte</span>
+                </Link>
 
                 <button
                     type="button"
@@ -225,11 +234,14 @@ function CreatePost() {
                 >
                     ← Back to Home
                 </button>
+
             </header>
 
             {/* Main content */}
             <main className="create-post-main">
+
                 <div className="create-post-heading">
+
                     <span className="create-post-kicker">
                         YOUR STORY STARTS HERE ✿
                     </span>
@@ -242,12 +254,14 @@ function CreatePost() {
                         Take a little moment, gather your thoughts,
                         and share something lovely.
                     </p>
+
                 </div>
 
                 <form
                     className="create-post-form"
                     onSubmit={handlePublish}
                 >
+
                     {/* Story title */}
                     <label htmlFor="title">
                         Story title *
@@ -296,14 +310,18 @@ function CreatePost() {
                     <label>Cover photo</label>
 
                     <div className="cover-upload-box">
+
                         {coverImage ? (
+
                             <div className="cover-preview">
+
                                 <img
                                     src={coverImage}
                                     alt="Cover preview"
                                 />
 
                                 <div className="cover-image-actions">
+
                                     <button
                                         type="button"
                                         onClick={() =>
@@ -320,9 +338,13 @@ function CreatePost() {
                                     >
                                         Remove
                                     </button>
+
                                 </div>
+
                             </div>
+
                         ) : (
+
                             <button
                                 type="button"
                                 className="cover-upload-btn"
@@ -343,7 +365,9 @@ function CreatePost() {
                                 <small>
                                     PNG, JPG, or WEBP · Max 5 MB
                                 </small>
+
                             </button>
+
                         )}
 
                         <input
@@ -353,12 +377,14 @@ function CreatePost() {
                             onChange={handleCoverUpload}
                             hidden
                         />
+
                     </div>
 
                     {/* Story editor */}
                     <label>Your story *</label>
 
                     <div className="editor-toolbar">
+
                         <select
                             aria-label="Font family"
                             defaultValue="Arial"
@@ -418,11 +444,9 @@ function CreatePost() {
 
                         <div className="toolbar-divider" />
 
-                        <label
-                            className="color-tool"
-                            title="Text color"
-                        >
+                        <label className="color-tool" title="Text color">
                             A
+
                             <input
                                 type="color"
                                 aria-label="Text color"
@@ -436,6 +460,7 @@ function CreatePost() {
                             title="Highlight color"
                         >
                             🖍
+
                             <input
                                 type="color"
                                 aria-label="Highlight color"
@@ -515,6 +540,7 @@ function CreatePost() {
                             onChange={handleInlineImage}
                             hidden
                         />
+
                     </div>
 
                     <div
@@ -540,6 +566,7 @@ function CreatePost() {
 
                     {/* Actions */}
                     <div className="create-post-actions">
+
                         <button
                             type="button"
                             className="cancel-post-btn"
@@ -557,9 +584,13 @@ function CreatePost() {
                                 ? "Publishing..."
                                 : "Publish story →"}
                         </button>
+
                     </div>
+
                 </form>
+
             </main>
+
         </div>
     );
 }

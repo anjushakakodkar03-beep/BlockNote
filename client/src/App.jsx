@@ -35,7 +35,6 @@ function AuthPage() {
   const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  
   const validateName = (name) => {
     const trimmedName = name.trim();
 
@@ -56,7 +55,6 @@ function AuthPage() {
     return "";
   };
 
-  
   const validatePhone = (phone) => {
     if (!phone) {
       return "Please enter your phone number.";
@@ -81,12 +79,10 @@ function AuthPage() {
       [name]: value,
     });
 
-    
     if (name === "name" && !isLogin) {
       setNameError(validateName(value));
     }
 
-    
     if (name === "phoneNo" && !isLogin) {
       setPhoneError(validatePhone(value));
     }
@@ -96,7 +92,6 @@ function AuthPage() {
     e.preventDefault();
     setMessage("");
 
-    
     if (!isLogin) {
       const validationError = validateName(formData.name);
       const phoneValidationError = validatePhone(formData.phoneNo);
@@ -113,7 +108,6 @@ function AuthPage() {
         setPhoneError("");
       }
 
-      
       if (validationError || phoneValidationError) {
         return;
       }
@@ -140,15 +134,15 @@ function AuthPage() {
 
       setMessage(
         isLogin
-          ? "Welcome back to Scribbly! 🎉"
-          : "Your Scribbly account is ready! 🎉"
+          ? "Welcome back to BlokNOte! 🎉"
+          : "Your BlokNOte account is ready! 🎉"
       );
 
       console.log("User response:", data);
     } catch (error) {
       setMessage(
         error.response?.data?.message ||
-          "Something went wrong. Please try again."
+        "Something went wrong. Please try again."
       );
     } finally {
       setLoading(false);
@@ -156,10 +150,10 @@ function AuthPage() {
   };
 
   return (
-    <div className="scribbly-page">
+    <div className="bloknote-page">
       <header className="topbar">
         <a href="/" className="logo">
-          scribbly<span>.</span>
+          BlokNOte<span>.</span>
         </a>
 
         <span className="tagline">
@@ -315,8 +309,8 @@ function AuthPage() {
                 {loading
                   ? "Please wait..."
                   : isLogin
-                  ? "Let's get writing →"
-                  : "Create my account →"}
+                    ? "Let's get writing →"
+                    : "Create my account →"}
               </button>
             </form>
 
@@ -328,7 +322,7 @@ function AuthPage() {
 
             <div className="switch-form">
               {isLogin
-                ? "New to Scribbly?"
+                ? "New to BlokNOte?"
                 : "Already have an account?"}
 
               <button
@@ -362,28 +356,14 @@ function App() {
 
         <Route path="/home" element={<Home />} />
 
-        <Route
-          path="/create-post"
-          element={<CreatePost />}
-        />
+        <Route path="/create-post" element={<CreatePost />} />
 
-        <Route
-          path="/post/:id"
-          element={<BlogPost />}
-        />
+        <Route path="/post/:id" element={<BlogPost />} />
 
-        <Route
-          path="/profile"
-          element={<Profile />}
-        />
+        <Route path="/profile" element={<Profile />} />
 
-        {/* Public profile page */}
-        <Route
-          path="/user/:username"
-          element={<PublicProfile />}
-        />
+        <Route path="/user/:username" element={<PublicProfile />} />
 
-        {/* Redirect unknown routes */}
         <Route
           path="*"
           element={<Navigate to="/" replace />}

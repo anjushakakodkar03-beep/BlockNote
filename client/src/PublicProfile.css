@@ -1,239 +1,138 @@
-/* =========================================================
-   SCRIBBLY PUBLIC PROFILE
-   Watercolor + Graph Paper Background
-   ========================================================= */
+/* =================================
+   PUBLIC PROFILE — EDITORIAL STYLE
+================================= */
 
 .public-profile-page {
+    --public-bg: #f8f6f1;
+    --public-card: #ffffff;
+    --public-text: #292522;
+    --public-muted: #77736c;
+    --public-primary: #a34d58;
+    --public-primary-dark: #823b45;
+    --public-border: #e8e2d9;
+    --public-soft: #f3eeea;
+
     min-height: 100vh;
-    color: #302538;
+    color: var(--public-text);
     font-family: inherit;
-
-    /* Warm paper base */
-    background-color: #fffdfb;
-
-    /* Graph paper + soft watercolor washes */
-    background-image:
-        /* Soft pink watercolor - bottom right */
-        radial-gradient(ellipse 420px 330px at 94% 94%,
-            rgba(247, 181, 210, 0.48),
-            rgba(250, 214, 228, 0.28) 42%,
-            transparent 72%),
-
-        /* Soft cream watercolor - bottom right */
-        radial-gradient(ellipse 340px 300px at 76% 100%,
-            rgba(247, 225, 177, 0.32),
-            transparent 70%),
-
-        /* Cream watercolor - top left */
-        radial-gradient(ellipse 430px 330px at 4% 3%,
-            rgba(239, 218, 178, 0.38),
-            rgba(247, 231, 204, 0.18) 48%,
-            transparent 75%),
-
-        /* Pink watercolor - top left */
-        radial-gradient(ellipse 360px 300px at 13% 15%,
-            rgba(246, 194, 215, 0.28),
-            transparent 72%),
-
-        /* Horizontal graph lines */
-        linear-gradient(rgba(95, 90, 90, 0.16) 1px,
-            transparent 1px),
-
-        /* Vertical graph lines */
-        linear-gradient(90deg,
-            rgba(95, 90, 90, 0.16) 1px,
-            transparent 1px);
-
-    background-size:
-        auto,
-        auto,
-        auto,
-        auto,
-        45px 45px,
-        45px 45px;
-
-    background-position:
-        center,
-        center,
-        center,
-        center,
-        0 0,
-        0 0;
-
-    background-attachment: fixed;
+    background: var(--public-bg);
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* HEADER */
 
 .public-profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 18px 7%;
-
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(6px);
-
-    border-bottom: 1px solid rgba(241, 230, 237, 0.8);
-
+    background: var(--public-card);
+    border-bottom: 1px solid var(--public-border);
     position: relative;
     z-index: 5;
 }
 
 .public-logo {
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 28px;
-    font-weight: 800;
-    color: #302538;
+    font-weight: 700;
     text-decoration: none;
     letter-spacing: -1px;
 }
 
 .public-logo span {
-    color: #d66a9c;
+    color: var(--public-primary);
 }
 
 .back-home-link {
-    color: #805a75;
+    color: var(--public-muted);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-
     transition: 0.2s ease;
 }
 
 .back-home-link:hover {
-    color: #d66a9c;
+    color: var(--public-primary);
 }
 
-
-/* =========================================================
-   MAIN CONTAINER
-   ========================================================= */
+/* MAIN CONTAINER */
 
 .public-profile-container {
-    max-width: 1050px;
-    width: 90%;
-    margin: 45px auto;
     position: relative;
     z-index: 2;
+    max-width: 1050px;
+    width: 90%;
+    margin: 40px auto;
 }
 
-
-/* =========================================================
-   PROFILE CARD
-   ========================================================= */
+/* PROFILE CARD */
 
 .public-profile-card {
-    background: rgba(255, 255, 255, 0.94);
-
-    border: 1px solid rgba(240, 226, 235, 0.9);
-
-    border-radius: 20px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 12px 35px rgba(104, 55, 91, 0.08),
-        0 3px 10px rgba(104, 55, 91, 0.04);
-
-    backdrop-filter: blur(4px);
+    background: var(--public-card);
+    border: 1px solid var(--public-border);
+    border-radius: 7px;
 }
 
-
-/* =========================================================
-   PROFILE COVER
-   ========================================================= */
+/* COVER */
 
 .public-profile-cover {
-    height: 165px;
-
-    background:
-        linear-gradient(120deg,
-            #f8dce9,
-            #e9dff8 48%,
-            #fbeadf);
-
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
+    height: 155px;
     padding: 20px 28px;
-
-    color: #bd77a0;
+    background: linear-gradient(120deg,
+            #eee4df,
+            #f4eee6,
+            #e9e9df);
+    color: rgba(130, 59, 69, 0.5);
     font-size: 30px;
-
-    position: relative;
 }
 
-/* subtle paper effect */
 .public-profile-cover::after {
     content: "";
     position: absolute;
     inset: 0;
-
-    background:
-        radial-gradient(circle at 15% 25%,
+    background: radial-gradient(circle at 15% 25%,
             rgba(255, 255, 255, 0.45),
-            transparent 25%),
-        radial-gradient(circle at 85% 70%,
-            rgba(255, 255, 255, 0.35),
-            transparent 28%);
-
+            transparent 30%);
     pointer-events: none;
 }
 
-
-/* =========================================================
-   PROFILE DETAILS
-   ========================================================= */
+/* PROFILE DETAILS */
 
 .public-profile-details {
-    padding: 0 35px 30px;
+    padding: 0 35px 32px;
 }
 
 .public-profile-top {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
     margin-top: -65px;
     margin-bottom: 18px;
-
-    position: relative;
-    z-index: 2;
 }
 
-
-/* =========================================================
-   AVATAR
-   ========================================================= */
+/* AVATAR */
 
 .public-avatar {
-    width: 125px;
-    height: 125px;
-
-    border-radius: 50%;
-
-    border: 5px solid #fff;
-
-    background: #f4e4ef;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 125px;
+    height: 125px;
     overflow: hidden;
-
-    color: #a15d87;
-    font-size: 45px;
+    background: var(--public-soft);
+    color: var(--public-primary);
+    border: 5px solid var(--public-card);
+    border-radius: 50%;
+    font-size: 42px;
     font-weight: 700;
-
-    box-shadow:
-        0 5px 16px rgba(104, 55, 91, 0.08);
 }
 
 .public-avatar img {
@@ -242,46 +141,33 @@
     object-fit: cover;
 }
 
-
-/* =========================================================
-   FOLLOW / EDIT BUTTON
-   ========================================================= */
+/* FOLLOW AND EDIT BUTTONS */
 
 .public-follow-btn,
 .public-edit-btn {
-    border: none;
-    border-radius: 25px;
-
-    padding: 12px 24px;
-
-    background: #d66a9c;
-    color: #fff;
-
-    font-weight: 700;
-    font-size: 14px;
-
-    cursor: pointer;
+    padding: 11px 22px;
+    background: var(--public-primary);
+    color: #ffffff;
+    border: 1px solid var(--public-primary);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
     text-decoration: none;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .public-follow-btn:hover,
 .public-edit-btn:hover {
-    background: #bd5486;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 6px 15px rgba(214, 106, 156, 0.22);
+    background: var(--public-primary-dark);
+    border-color: var(--public-primary-dark);
+    transform: translateY(-1px);
 }
 
 .public-follow-btn.following {
-    background: #f6e9f0;
-    color: #9b4c78;
+    background: var(--public-soft);
+    color: var(--public-primary-dark);
+    border-color: var(--public-border);
 }
 
 .public-follow-btn:disabled {
@@ -289,375 +175,236 @@
     cursor: wait;
 }
 
-
-/* =========================================================
-   NAME + USERNAME
-   ========================================================= */
+/* NAME AND USERNAME */
 
 .public-profile-details h1 {
     margin: 8px 0 4px;
-
-    font-size: 30px;
-
-    color: #302538;
-
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    font-weight: 700;
     letter-spacing: -0.5px;
 }
 
 .public-username {
     margin: 0;
-
-    color: #a17c96;
-
-    font-size: 15px;
+    color: var(--public-muted);
+    font-size: 13px;
 }
 
-
-/* =========================================================
-   BIO
-   ========================================================= */
+/* BIO */
 
 .public-bio {
     max-width: 650px;
-
     margin: 18px 0;
-
-    line-height: 1.7;
-
-    color: #665668;
-
+    color: #514c46;
+    font-size: 14px;
+    line-height: 1.8;
     white-space: pre-wrap;
 }
 
-
-/* =========================================================
-   PROFILE STATS
-   ========================================================= */
+/* PROFILE STATISTICS */
 
 .public-profile-stats {
     display: flex;
-
     gap: 40px;
-
     margin-top: 25px;
 }
 
 .public-profile-stats div {
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
 }
 
 .public-profile-stats strong {
-    font-size: 21px;
-
-    color: #302538;
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
 }
 
 .public-profile-stats span {
-    font-size: 13px;
-
-    color: #9a7d92;
+    color: var(--public-muted);
+    font-size: 12px;
 }
 
-
-/* =========================================================
-   POSTS SECTION
-   ========================================================= */
+/* POSTS SECTION */
 
 .public-posts-section {
-    margin-top: 42px;
+    margin-top: 45px;
 }
 
 .public-posts-heading {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .public-posts-heading h2 {
     margin: 0;
-
-    font-size: 23px;
-
-    color: #302538;
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
 }
 
 .public-posts-heading span {
-    font-size: 13px;
-
-    color: #9a7d92;
+    color: var(--public-muted);
+    font-size: 12px;
 }
 
-
-/* =========================================================
-   POSTS GRID
-   ========================================================= */
+/* POSTS GRID */
 
 .public-posts-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
-
-/* =========================================================
-   POST CARD
-   ========================================================= */
+/* POST CARD */
 
 .public-post-card {
-    background: rgba(255, 255, 255, 0.95);
-
-    border: 1px solid #f0e2eb;
-
-    border-radius: 16px;
-
     overflow: hidden;
-
-    text-decoration: none;
-
+    background: var(--public-card);
+    border: 1px solid var(--public-border);
+    border-radius: 6px;
     color: inherit;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .public-post-card:hover {
     transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 25px rgba(104, 55, 91, 0.10);
+    box-shadow: 0 10px 25px rgba(41, 37, 34, 0.07);
 }
 
-
-/* =========================================================
-   POST IMAGE
-   ========================================================= */
+/* POST IMAGE */
 
 .public-post-image,
 .public-post-placeholder {
-    width: 100%;
-
-    height: 175px;
-
-    object-fit: cover;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
 }
 
 .public-post-placeholder {
-    color: #fff;
-
-    font-size: 40px;
+    color: var(--public-primary);
+    background: var(--public-soft);
+    font-size: 38px;
 }
 
-
-/* =========================================================
-   POST CONTENT
-   ========================================================= */
+/* POST CONTENT */
 
 .public-post-content {
-    padding: 18px;
+    padding: 19px;
 }
 
 .public-post-type {
     display: inline-block;
-
     margin-bottom: 10px;
-
-    color: #bd6595;
-
-    background: #fbedf4;
-
-    border-radius: 20px;
-
-    padding: 5px 10px;
-
-    font-size: 11px;
+    padding: 5px 9px;
+    background: var(--public-soft);
+    color: var(--public-primary);
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .public-post-content h3 {
-    font-size: 18px;
-
     margin: 0 0 9px;
-
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
     line-height: 1.4;
 }
 
 .public-post-content p {
     margin: 0 0 14px;
-
-    font-size: 13px;
-
-    color: #8b778a;
-
-    line-height: 1.6;
+    color: var(--public-muted);
+    font-size: 12px;
+    line-height: 1.7;
 }
 
 .public-post-date {
-    color: #a38c9f;
-
-    font-size: 12px;
+    color: var(--public-muted);
+    font-size: 11px;
 }
 
-
-/* =========================================================
-   EMPTY POSTS
-   ========================================================= */
+/* EMPTY POSTS */
 
 .public-empty-posts {
-    text-align: center;
-
     padding: 55px 20px;
-
-    border: 1px dashed #e8cddd;
-
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.91);
-
-    box-shadow:
-        0 5px 18px rgba(104, 55, 91, 0.03);
+    background: var(--public-card);
+    border: 1px dashed var(--public-border);
+    border-radius: 7px;
+    text-align: center;
 }
 
 .public-empty-posts>span {
-    color: #d66a9c;
-
+    color: var(--public-primary);
     font-size: 35px;
 }
 
 .public-empty-posts h3 {
-    margin-bottom: 8px;
+    color: var(--public-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
 }
 
 .public-empty-posts p {
-    color: #9a7d92;
+    color: var(--public-muted);
+    font-size: 13px;
 }
 
-
-/* =========================================================
-   PROFILE LOADING / ERROR
-   ========================================================= */
+/* LOADING AND ERROR */
 
 .public-profile-message {
-    min-height: 70vh;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 12px;
-
-    text-align: center;
-
+    min-height: 70vh;
     padding: 25px;
+    color: var(--public-muted);
+    text-align: center;
 }
 
 .public-profile-message h2 {
     margin-bottom: 0;
+    color: var(--public-text);
 }
 
 .back-home-btn {
-    padding: 12px 22px;
-
-    border-radius: 25px;
-
-    background: #d66a9c;
-
-    color: #fff;
-
+    padding: 11px 20px;
+    background: var(--public-primary);
+    color: #ffffff;
+    border-radius: 5px;
     text-decoration: none;
-
     transition: 0.2s ease;
 }
 
 .back-home-btn:hover {
-    background: #bd5486;
-
-    transform: translateY(-1px);
+    background: var(--public-primary-dark);
 }
 
 .public-profile-error {
-    color: #b83e55;
-
-    background: #fff0f2;
-
-    border-radius: 10px;
-
     padding: 12px 15px;
+    background: #fbefed;
+    color: #a33d37;
+    border-radius: 5px;
 }
 
-
-/* =========================================================
-   LITTLE SCRIBBLY DECORATION
-   ========================================================= */
-
-.public-profile-page::before {
-    content: "♡     ✦                         ✿                    ♡";
-
-    position: fixed;
-
-    top: 145px;
-    left: 3%;
-
-    color: rgba(214, 106, 156, 0.42);
-
-    font-size: 24px;
-
-    letter-spacing: 10px;
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-.public-profile-page::after {
-    content: "✧                 ♡                         ✿";
-
-    position: fixed;
-
-    bottom: 55px;
-    right: 3%;
-
-    color: rgba(214, 106, 156, 0.42);
-
-    font-size: 25px;
-
-    letter-spacing: 12px;
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* TABLET */
 
 @media (max-width: 768px) {
-
     .public-profile-container {
         width: 92%;
-
         margin: 25px auto;
     }
 
@@ -679,7 +426,7 @@
     }
 
     .public-profile-details h1 {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .public-profile-stats {
@@ -687,9 +434,7 @@
     }
 
     .public-posts-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
     }
 
@@ -697,21 +442,11 @@
     .public-post-placeholder {
         height: 140px;
     }
-
-    .public-profile-page::before,
-    .public-profile-page::after {
-        font-size: 18px;
-        letter-spacing: 5px;
-    }
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
+/* MOBILE */
 
 @media (max-width: 480px) {
-
     .public-profile-header {
         padding: 15px 5%;
     }
@@ -730,7 +465,6 @@
 
     .public-profile-stats {
         justify-content: space-between;
-
         gap: 10px;
     }
 
@@ -741,10 +475,5 @@
     .public-post-image,
     .public-post-placeholder {
         height: 190px;
-    }
-
-    .public-profile-page::before,
-    .public-profile-page::after {
-        display: none;
     }
 }
